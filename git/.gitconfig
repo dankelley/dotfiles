@@ -1,0 +1,43 @@
+[push]
+    default = matching
+[core]
+    excludefiles = /Users/kelley/.gitignore
+    excludesfile = /Users/kelley/.gitignore_global
+[gui]
+    fontdiff = -family \"Lucida Grande\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+    spellingdictionary=none
+[alias]
+    stat=diff --stat
+    changes=diff --name-status -r
+    s=status
+    graph = log --graph --all --pretty=format:'[%h] %s (%ar)'
+    l = log --pretty='format:%h %cD %s' --shortstat
+    wdiff = diff --color-words
+
+
+[user]
+    name = Dan Kelley
+    email = kelley.dan@gmail.com
+[branch]
+    autosetupmerge = true
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+[filter "media"]
+    required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
+[credential]
+	helper = cache --timeout=7200
+[filter "hawser"]
+    clean = git hawser clean %f
+    smudge = git hawser smudge %f
+    required = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
