@@ -9,4 +9,5 @@
 #options(oceEOS="unesco") # home machine
 options(oceEOS="gsw") # work machine
 
+Sys.setenv(TZ="America/Halifax")
 
