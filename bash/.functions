@@ -1,0 +1,5 @@
+#!/bin/bash                                                                 
+function Rmd { 
+    R --no-save -e 'library(rmarkdown); render("'$1'", "pdf_document")'
+}
+
