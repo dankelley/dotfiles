@@ -5,7 +5,7 @@
         options(editor="mvim", device="x11")
     }
 }
-#options(repos="https://cloud.r-project.org")
+options(repos="https://cloud.r-project.org")
 #options(oceEOS="unesco") # home machine
 options(oceEOS="gsw") # work machine
 
