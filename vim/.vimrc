@@ -94,7 +94,3 @@ execute pathogen#infect()
 " display error char for trailing blanks on lines
 match ErrorMsg '\s\+$'
 
-" Fuzzy finder
-" https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew
-set rtp+=/usr/local/opt/fzf
-
