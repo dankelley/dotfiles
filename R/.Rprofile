@@ -1,10 +1,9 @@
 .First  <- function() {
     options(digits.secs=3)
-    if (interactive()) {
-        options(editor='mvim')
-        ##options(editor="mvim", device="x11")
-        options(editor="mvim", device="quartz")
-    }
+    options(editor="mvim", device="quartz")
+    #if (interactive()) {
+    #    options(editor="mvim", device="quartz")
+    #}
 }
 options(repos="https://cloud.r-project.org")
 #options(oceEOS="unesco") # home machine
