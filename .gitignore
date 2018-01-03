@@ -3,3 +3,5 @@
 
 *~
 *.pyc
+*.spl
+vim/.vim/spell
