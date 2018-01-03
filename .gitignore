@@ -5,3 +5,4 @@
 *.pyc
 *.spl
 vim/.vim/spell
+.Rapp.history

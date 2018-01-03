@@ -90,4 +90,7 @@ augroup END
 
 " for pathogen (see https://github.com/tpope/vim-pathogen)
 execute pathogen#infect()
- 
+
+" display error char for trailing blanks on lines
+match ErrorMsg '\s\+$'
+
