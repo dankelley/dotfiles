@@ -1,24 +1,21 @@
 alias m=make
-alias e='mvim tutorial/tutorial.Rnw solutions/solutions.Rnw'
 #alias nb=~/src/nb/nb
 alias n=nota
 alias nn='PYTHONPATH=/Users/kelley/src/nota python -m nota'
-alias make=/Applications/Xcode.app/Contents/Developer/usr/bin/make
+#alias make=/Applications/Xcode.app/Contents/Developer/usr/bin/make
 alias vi=/Applications/MacVim.app/Contents/MacOS/Vim
 #alias matlab='/Applications/MATLAB_R2011b.app/bin/matlab -nojvm'
 #alias sky='cd ~/school-sky-light'
-alias dam='cd /Users/kelley/Documents/teaching/dam/dk/slides/bayesian'
 alias r='open -a R.app .'
 alias rs='open -a Rstudio .'
-alias sle='ssh sleiwex'
 alias hist='history|tail -33'
-alias gcocean='ssh gcocean@kil-ws-1.ucis.dal.ca'
+#alias gcocean='ssh gcocean@kil-ws-1.ucis.dal.ca'
 
 alias ls='ls -CF'
 alias clean='rm -rf *~'
 
-alias po='cd /Users/kelley/Documents/teaching/5120/2011/x120-evaluation'
-alias babypo='cd /Users/kelley/Documents/teaching/3001/2011/3001-evaluation'
+#alias po='cd /Users/kelley/Documents/teaching/5120/2011/x120-evaluation'
+#alias babypo='cd /Users/kelley/Documents/teaching/3001/2011/3001-evaluation'
 
 alias rm='rm -i'
 
