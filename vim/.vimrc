@@ -39,8 +39,8 @@ set printoptions=left:15pt,right:15pt,top:15pt,bottom:15pt
 
 colorscheme dek01
 if has("gui_macvim")
-   "set guifont=Monaco:h13
-   set guifont=IBM_Plex_Mono:h15
+   set guifont=Monaco:h13
+   "set guifont=IBM_Plex_Mono:h15
 else
     set columns=80
 endif
