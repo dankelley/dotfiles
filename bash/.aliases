@@ -18,4 +18,5 @@ alias clean='rm -rf *~'
 #alias babypo='cd /Users/kelley/Documents/teaching/3001/2011/3001-evaluation'
 
 alias rm='rm -i'
+alias oar='open -a skim oar.pdf'
 
