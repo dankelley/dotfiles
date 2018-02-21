@@ -1,4 +1,4 @@
-options(digits=5, digits.secs=3)
+options(digits=7, digits.secs=3)
 options(editor="mvim")
 ## options(device="x11")
 ## options(repos="https://cloud.r-project.org")
