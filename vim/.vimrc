@@ -2,14 +2,14 @@ au BufRead *.txt setlocal spell spelllang=en_us
 au BufRead *.tex setlocal spell spelllang=en_us
 au BufRead *.md  setlocal spell spelllang=en_us
 
-set wrap 
+set wrap
 set linebreak
 
 autocmd Filetype tex setlocal nofoldenable
 let vimrplugin_vimpager = "no"
 set backup
 set backupskip=/tmp/*,/private/tmp/*
-let maplocalleader = ',' 
+let maplocalleader = ','
 let r_indent_align_args = 1
 let r_indent_ess_comments = 1
 set enc=utf-8
@@ -39,8 +39,8 @@ set printoptions=left:15pt,right:15pt,top:15pt,bottom:15pt
 
 colorscheme dek01
 if has("gui_macvim")
-   set guifont=Monaco:h13
-   "set guifont=IBM_Plex_Mono:h15
+    "set guifont=Monaco:h13
+    set guifont=IBM_Plex_Mono:h14.5
 else
     set columns=80
 endif
@@ -63,7 +63,7 @@ filetype indent on
 :map <F2> :cN<CR>
 
 " vimorganizer
-au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
+au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
 au BufEnter *.org            call org#SetOrgFileType()
 
 
