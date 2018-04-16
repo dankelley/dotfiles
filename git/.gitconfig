@@ -11,7 +11,8 @@
     changes=diff --name-status -r
     s=status
     graph = log --graph --all --pretty=format:'[%h] %s (%ar)'
-    l = log --pretty='format:%h %cD %s' --shortstat
+    l = log --pretty='format:%h %cD %s' --shortstat --pretty=oneline --abbrev-commit
+    ll = log --pretty='format:%h %cD %s' --stat --pretty=oneline --abbrev-commit
     wdiff = diff --color-words
 
 
@@ -41,3 +42,4 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+
