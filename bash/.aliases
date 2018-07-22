@@ -19,4 +19,5 @@ alias clean='rm -rf *~'
 
 alias rm='rm -i'
 alias oar='open -a skim oar.pdf'
+alias skim='open -a skim'
 

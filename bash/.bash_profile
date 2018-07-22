@@ -106,3 +106,6 @@ git commit -m "$1 added"
 git push
 }
 
+### pass, used to store passwords. Share work-home via dropbox
+export PASSWORD_STORE_DIR=~/Dropbox/.password-store
+
