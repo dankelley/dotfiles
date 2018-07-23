@@ -34,7 +34,7 @@ map <LocalLeader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " setup for hardcopy
 "set printfont=Courier:h10
 "set printfont=Monaco:h12
-set printfont=IBM_Plex_Mono:h8
+set printfont=IBM_Plex_Mono:h9
 "set printfont=Courier:h14
 set printoptions=left:15pt,right:15pt,top:15pt,bottom:15pt
 

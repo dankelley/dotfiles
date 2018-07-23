@@ -1,3 +1,5 @@
+alias cp='cp -i'
+alias skim='open -a skim'
 alias m=make
 #alias nb=~/src/nb/nb
 alias n=nota
