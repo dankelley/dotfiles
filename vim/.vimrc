@@ -59,9 +59,12 @@ syntax enable
 filetype plugin on
 filetype indent on
 
-" kelley
-:map <F1> :cn<CR>
-:map <F2> :cN<CR>
+" kelley. used by :vimgrep; first open window, then nav with F2 and F3. Need
+" to turn on function keys on osx, by the "Use F1,F2, etc" button in
+" preference/keyboard.
+:map <F1> :copen<CR>
+:map <F2> :cnext<CR>
+:map <F3> :cprevious<CR>
 
 " vimorganizer
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
