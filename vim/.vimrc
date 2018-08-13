@@ -66,6 +66,10 @@ filetype indent on
 :map <F2> :cnext<CR>
 :map <F3> :cprevious<CR>
 
+" kelley. F12 runs !make
+:map <F12> :!make<CR>
+
+
 " vimorganizer
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
 au BufEnter *.org            call org#SetOrgFileType()
