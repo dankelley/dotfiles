@@ -102,3 +102,6 @@ execute pathogen#infect()
 " display error char for trailing blanks on lines
 match ErrorMsg '\s\+$'
 
+" escape as jj
+inoremap jj <esc>
+
