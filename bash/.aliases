@@ -1,3 +1,4 @@
+alias git='/usr/local/bin/git'
 alias cp='cp -i'
 alias skim='open -a skim'
 alias m=make
