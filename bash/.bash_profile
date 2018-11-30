@@ -76,7 +76,7 @@ R --no-save -e 'library(rmarkdown); render("'$1'", "pdf_document")'
 #PS1="\h:\W"
 PS1="\h:"
 export PS1="$PS1\$(last_two_dirs)"
-export PS1="$PS1\$(parse_git_branch)"
+#export PS1="$PS1\$(parse_git_branch)"
 #export PS1="$PS1<\$(nb_count)> "
 export PS1="$PS1$ "
 echo -n -e "\033]0;emit\007"
