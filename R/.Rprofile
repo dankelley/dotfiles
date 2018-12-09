@@ -5,4 +5,5 @@ options(device="quartz")
 ##options(oceEOS="unesco") # home machine
 options(oceEOS="gsw") # work machine
 Sys.setenv(TZ="America/Halifax")
-
+## https://github.com/r-lib/devtools/issues/1921
+## Sys.setenv("_R_CHECK_CRAN_INCOMING_"=TRUE)
