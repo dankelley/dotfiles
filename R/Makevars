@@ -1,0 +1,8 @@
+CC=clang
+CXX=clang++
+CXXFLAGS= -O3 -pedantic
+#CXXFLAGS= -O3 -pedantic -Wsign-compare
+
+#CC = clang -std=gnu99 -fsanitize=undefined -fno-omit-frame-pointer
+#CXX = clang -fsanitize=undefined -fno-omit-frame-pointer
+
