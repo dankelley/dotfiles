@@ -81,9 +81,9 @@ export PS1="$PS1\$(last_two_dirs)"
 export PS1="$PS1$ "
 echo -n -e "\033]0;emit\007"
 
-export R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
-export _R_BUILD_COMPACT_VIGNETTES_=true
-export _R_CHECK_FORCE_SUGGESTS_=false
+##export R_REMOTES_NO_ERRORS_FROM_WARNINGS=TRUE
+##export _R_BUILD_COMPACT_VIGNETTES_=TRUE
+##export _R_CHECK_FORCE_SUGGESTS_=FALSE
 #export R_ARCH=/x86_64
 
 ### # Setting PATH for Python 2.7
