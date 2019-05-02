@@ -1,4 +1,5 @@
 options(digits=7, digits.secs=3)
+options(repos=c(CRAN="https://cloud.r-project.org"))
 options(editor="mvim")
 options(device="quartz")
 ## options(repos="https://cloud.r-project.org")
