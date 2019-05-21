@@ -1,10 +1,8 @@
 alias git='/usr/local/bin/git'
-alias cp='cp -i'
-alias skim='open -a skim'
 alias m=make
 #alias nb=~/src/nb/nb
 alias n=nota
-alias nn='PYTHONPATH=/Users/kelley/src/nota python -m nota'
+#alias nn='PYTHONPATH=/Users/kelley/src/nota python -m nota'
 #alias make=/Applications/Xcode.app/Contents/Developer/usr/bin/make
 alias vi=/Applications/MacVim.app/Contents/MacOS/Vim
 #alias matlab='/Applications/MATLAB_R2011b.app/bin/matlab -nojvm'
@@ -20,7 +18,7 @@ alias clean='rm -rf *~'
 #alias po='cd /Users/kelley/Documents/teaching/5120/2011/x120-evaluation'
 #alias babypo='cd /Users/kelley/Documents/teaching/3001/2011/3001-evaluation'
 
+alias cp='cp -i'
 alias rm='rm -i'
-alias oar='open -a skim oar.pdf'
 alias skim='open -a skim'
 

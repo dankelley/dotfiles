@@ -9,16 +9,16 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 source ~/.git-completion.sh
 ##export PATH=$PATH:~/Library/Haskell/ghc-7.0.3/lib/pandoc-1.8.1.1/bin
 export PATH=${PATH}:/Users/kelley/bin
-export PATH="/usr/local/sbin:$PATH"
+##export PATH="/usr/local/sbin:$PATH"
 ##export PATH=${PATH}:/Developer/usr/bin/
-function parse_git_dirty {
-    #[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
-    [[ $(git status 2> /dev/null | tail -n1 | grep -v "nothing to commit") ]] && echo "*"
-}
-function parse_git_branch {
-  #git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
-}
+## function parse_git_dirty {
+##     #[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+##     [[ $(git status 2> /dev/null | tail -n1 | grep -v "nothing to commit") ]] && echo "*"
+## }
+## function parse_git_branch {
+##   #git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+##   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
+## }
 
 IGNOREEOF=3
 
@@ -37,8 +37,8 @@ fi
 ## PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
 export PATH
 
-MKL_NUM_THREADS=1
-export MKL_NUM_THREADS
+#MKL_NUM_THREADS=1
+#export MKL_NUM_THREADS
 
 ## bashmarks
 source ~/.local/bin/bashmarks.sh
