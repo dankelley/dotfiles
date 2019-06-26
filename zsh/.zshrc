@@ -83,7 +83,8 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='/Applications/MacVim.app/Contents/bin/mvim'
+  export EDITOR='vim'
+  #export EDITOR='/Applications/MacVim.app/Contents/bin/mvim'
 fi
 
 # Compilation flags
