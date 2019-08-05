@@ -62,12 +62,15 @@ filetype indent on
 " kelley. used by :vimgrep; first open window, then nav with F2 and F3. Need
 " to turn on function keys on osx, by the "Use F1,F2, etc" button in
 " preference/keyboard.
-:map <F1> :copen<CR>
-:map <F2> :cnext<CR>
-:map <F3> :cprevious<CR>
+" :map <F1> :copen<CR>
+" :map <F2> :cnext<CR>
+" :map <F3> :cprevious<CR>
 
+" kelley, convert R doc to md format
+:map <F1> :s/\\code{\([^}]*\)}/`\1`/gc
 " kelley. F12 runs !make
 :map <F12> :!make<CR>
+
 
 
 " vimorganizer
