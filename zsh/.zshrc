@@ -109,3 +109,7 @@ alias rm='rm -i'
 alias rs='open -a Rstudio .'
 alias skim='open -a skim'
 
+function ssht() {
+    ssh $* -t 'tmux a || tmux || /bin/zsh'
+}
+
