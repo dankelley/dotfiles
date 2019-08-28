@@ -110,6 +110,6 @@ alias rs='open -a Rstudio .'
 alias skim='open -a skim'
 
 function ssht() {
-    ssh $* -t 'tmux a || tmux || /bin/zsh'
+    ssh $* -t '/usr/local/bin/tmux a || /usr/local/bin/tmux || /bin/zsh'
 }
 
