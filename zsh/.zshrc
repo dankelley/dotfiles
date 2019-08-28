@@ -109,7 +109,12 @@ alias rm='rm -i'
 alias rs='open -a Rstudio .'
 alias skim='open -a skim'
 
+# ssh tries to attach to a tmux session on remote host
 function ssht() {
     ssh $* -t '/usr/local/bin/tmux a || /usr/local/bin/tmux || /bin/zsh'
 }
+
+# prevent ctrl-d from killing the terminal (I want this because I am
+# in a ctrl-d habit in terminals, which kills a tmux session.
+setopt ignore_eof
 
