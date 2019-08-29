@@ -118,3 +118,8 @@ function ssht() {
 # in a ctrl-d habit in terminals, which kills a tmux session.
 setopt ignore_eof
 
+# create a pdf from an Rmarkdown file
+function Rmd() {
+    R --no-save -e 'library(rmarkdown); render("'$1'", "pdf_document")'
+}
+
