@@ -98,7 +98,6 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias t='tmux a'
 alias clean='rm -rf *~'
 alias cp='cp -i'
 alias hist='history|tail -33'
