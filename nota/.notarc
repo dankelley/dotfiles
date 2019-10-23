@@ -1,4 +1,4 @@
 db = "~/Dropbox/nota.db"
 verbose = 0
-debug = True
+debug = False
 
