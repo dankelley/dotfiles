@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/Users/kelley/Documents/teaching/5120/2014/web'
 let g:netrw_dirhist_2='/Users/kelley/GraduateCoordinator/people/tapics_tara'
 let g:netrw_dirhist_3='/Users/kelley/Documents/Arduino/templogger_pde'
+let g:netrw_dirhist_4='/Users/kelley/oce-issues/147'
+let g:netrw_dirhist_5='/Users/kelley/git/whalecollision/sandbox/dk/figures'

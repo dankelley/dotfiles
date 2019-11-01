@@ -4,6 +4,7 @@ au BufRead *.md  setlocal spell spelllang=en_us
 
 set wrap
 set linebreak
+set mouse=a
 
 autocmd Filetype tex setlocal nofoldenable
 let vimrplugin_vimpager = "no"
