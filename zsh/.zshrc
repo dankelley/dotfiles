@@ -123,3 +123,6 @@ function Rmd() {
     R --no-save -e 'library(rmarkdown); render("'$1'", "pdf_document")'
 }
 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
