@@ -1,5 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/kelley/git/whalecollision/sandbox/dk/figures'
-let g:netrw_dirhist_2='/Users/kelley/git/shiny'
-let g:netrw_dirhist_3='/Users/kelley/Dropbox/p02w_ct1'
+let g:netrw_dirhist_cnt =0
