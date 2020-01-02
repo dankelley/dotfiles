@@ -108,6 +108,7 @@ alias r='open -a R.app .'
 alias rm='rm -i'
 alias rs='open -a Rstudio .'
 alias skim='open -a skim'
+alias v='~/bin/v'
 
 # ssh tries to attach to a tmux session on remote host
 function ssht() {
