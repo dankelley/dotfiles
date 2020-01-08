@@ -19,7 +19,7 @@ set ruler
 set nohlsearch
 set tabpagemax=100
 set laststatus=2
-set statusline=[%l,%c\ %P%M]\ %f\ %r%h%w
+set statusline=[%l,%c\ %P%M]\ 0x%B\ %f\ %r%h%w
 
 set expandtab
 set shiftwidth=4
