@@ -64,6 +64,8 @@ filetype indent on
 :map <F1> :s/\\code{\\link{\([^}]*\)}}/[\1()]/gc
 " kelley: for R docs, convert \code{something} to `something`, i.e. Rd to md format
 :map <F2> :s/\\code{\([^}]*\)}/`\1`/gc
+" kelley: undo roxygen (seems not to work in for functions etc??)
+:map <F3> :s/`\([^`]*\)`/\\code{\1}/gc
 " kelley: F12 runs !make
 :map <F12> :!make<CR>
 
