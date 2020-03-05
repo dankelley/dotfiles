@@ -104,3 +104,10 @@ match ErrorMsg '\s\+$'
 " escape as jj
 inoremap jj <esc>
 
+call plug#begin('~/.vim/plugged')
+ 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
