@@ -109,6 +109,7 @@ alias rm='rm -i'
 alias rs='open -a Rstudio .'
 alias skim='open -a skim'
 alias v='~/bin/v'
+alias t='tmux a'
 
 # ssh tries to attach to a tmux session on remote host
 function ssht() {
@@ -128,4 +129,4 @@ function Rmd() {
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
