@@ -109,6 +109,7 @@ alias rm='rm -i'
 alias rs='open -a Rstudio .'
 alias skim='open -a skim'
 alias v='~/bin/v'
+alias vim='/Applications/MacVim.app/Contents/bin/vim'
 alias t='tmux a'
 
 # ssh tries to attach to a tmux session on remote host
@@ -130,3 +131,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
