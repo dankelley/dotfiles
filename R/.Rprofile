@@ -1,6 +1,6 @@
 options(digits=7, digits.secs=3)
 options(repos=c(CRAN="https://cloud.r-project.org"))
-options(editor="vim")
+options(editor="/Applications/MacVim.app/Contents/bin/vim")
 options(device="quartz")
 ## options(repos="https://cloud.r-project.org")
 options(oceEOS="unesco") # home machine
