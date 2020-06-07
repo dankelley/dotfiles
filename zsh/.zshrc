@@ -83,8 +83,8 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='vim'
-  #export EDITOR='/Applications/MacVim.app/Contents/bin/mvim'
+  #export EDITOR='vim'
+  export EDITOR='/Applications/MacVim.app/Contents/bin/vim'
 fi
 
 # Compilation flags
@@ -102,14 +102,15 @@ alias clean='rm -rf *~'
 alias cp='cp -i'
 alias hist='history|tail -33'
 alias m=make
-alias mvim="/Applications/MacVim.app/Contents/bin/mvim"
+alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 alias n=nota
 alias r='open -a R.app .'
 alias rm='rm -i'
 alias rs='open -a Rstudio .'
 alias skim='open -a skim'
-alias v='~/bin/v'
 alias t='tmux a'
+alias v='~/bin/v'
+alias vim='/Applications/MacVim.app/Contents/bin/vim'
 
 # ssh tries to attach to a tmux session on remote host
 function ssht() {
