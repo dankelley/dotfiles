@@ -10,6 +10,7 @@ autocmd Filetype tex setlocal nofoldenable
 let vimrplugin_vimpager = "no"
 set backup
 set backupskip=/tmp/*,/private/tmp/*
+let mapleader = ','
 let maplocalleader = ','
 let r_indent_align_args = 1
 let r_indent_ess_comments = 1
@@ -29,10 +30,10 @@ set softtabstop=4
 set number
 noremap Q gq}
 
-" edit directory containing file
-map <LocalLeader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+"" edit directory containing file
+" map <LocalLeader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" setup for hardcopy
+"setup for hardcopy
 "set printfont=Courier:h10
 "set printfont=Monaco:h12
 set printfont=IBM_Plex_Mono:h9
@@ -56,8 +57,9 @@ endif
 " for plugins
 set modelines=1
 set nocompatible
-syntax enable
 filetype plugin on
+"syntax enable
+syntax on
 filetype indent on
 
 " kelley: for R docs, convert \code{\link{something}} to [something()], i.e. Rd to md format
@@ -69,9 +71,9 @@ filetype indent on
 " kelley: F12 runs !make
 :map <F12> :!make<CR>
 
-" vimorganizer
-au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
-au BufEnter *.org            call org#SetOrgFileType()
+"" vimorganizer
+" au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
+" au BufEnter *.org            call org#SetOrgFileType()
 
 
 if $VIM_CRONTAB == "true"
@@ -95,8 +97,8 @@ augroup XML
     autocmd FileType xml setlocal foldmethod=indent foldlevelstart=999 foldminlines=0
 augroup END
 
-" for pathogen (see https://github.com/tpope/vim-pathogen)
-execute pathogen#infect()
+"" for pathogen (see https://github.com/tpope/vim-pathogen)
+"execute pathogen#infect()
 
 " display error char for trailing blanks on lines
 match ErrorMsg '\s\+$'
@@ -104,10 +106,13 @@ match ErrorMsg '\s\+$'
 " escape as jj
 inoremap jj <esc>
 
-call plug#begin('~/.vim/plugged')
- 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
-Plug 'junegunn/fzf.vim'
+"call plug#begin('~/.vim/plugged')
+" 
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+"Plug 'junegunn/fzf.vim'
+"
+"call plug#end()
 
-call plug#end()
-
+" vimwiki: use markdown format
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.wiki'}]
