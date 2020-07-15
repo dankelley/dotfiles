@@ -54,6 +54,7 @@
 
 " ********************************************************************************
 set background=dark
+set transparency=15
 hi clear
 
 if exists("syntax_on")

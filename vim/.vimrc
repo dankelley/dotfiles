@@ -106,13 +106,12 @@ match ErrorMsg '\s\+$'
 " escape as jj
 inoremap jj <esc>
 
-"call plug#begin('~/.vim/plugged')
-" 
+call plug#begin('~/.vim/plugged')
+Plug 'drewtempelmeyer/palenight.vim'
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 "Plug 'junegunn/fzf.vim'
-"
-"call plug#end()
+call plug#end()
 
 " vimwiki: use markdown format
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.wiki'}]
+let g:vimwiki_list = [{'path': '~/git/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
