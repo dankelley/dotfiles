@@ -30,8 +30,8 @@ set softtabstop=4
 set number
 noremap Q gq}
 
-"" edit directory containing file
-" map <LocalLeader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+" edit directory containing file
+map <LocalLeader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 "setup for hardcopy
 "set printfont=Courier:h10
@@ -40,9 +40,9 @@ set printfont=IBM_Plex_Mono:h9
 "set printfont=Courier:h14
 set printoptions=left:15pt,right:15pt,top:15pt,bottom:15pt
 
-colorscheme dek01
 if has("gui_macvim")
     "set guifont=Monaco:h13
+    colorscheme dek01
     set guifont=IBM_Plex_Mono:h14
 else
     set columns=80
@@ -108,10 +108,26 @@ inoremap jj <esc>
 
 call plug#begin('~/.vim/plugged')
 Plug 'drewtempelmeyer/palenight.vim'
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
-"Plug 'junegunn/fzf.vim'
+" "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+" "Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " vimwiki: use markdown format
 let g:vimwiki_list = [{'path': '~/git/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+hi VimwikiHeader1 guifg=#FF0000
+hi VimwikiHeader2 guifg=#00FF00
+hi VimwikiHeader3 guifg=#0000FF
+hi VimwikiHeader4 guifg=#FF00FF
+hi VimwikiHeader5 guifg=#00FFFF
+hi VimwikiHeader6 guifg=#FFFF00
+" set hi link VimwikiHeader1 pandocBlockQuoteLeader1
+" set hi link VimwikiHeader2 pandocBlockQuoteLeader2
+" set hi link VimwikiHeader3 pandocBlockQuoteLeader3
+" set hi link VimwikiHeader4 pandocBlockQuoteLeader4
+" set hi link VimwikiHeader5 pandocBlockQuoteLeader5
+" set hi link VimwikiHeader6 pandocBlockQuoteLeader6
+
+"
+" turn off incremental search, which neovim uses
+set noincsearch
