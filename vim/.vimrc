@@ -115,12 +115,13 @@ call plug#end()
 " vimwiki: use markdown format
 let g:vimwiki_list = [{'path': '~/git/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
-hi VimwikiHeader1 guifg=#FF0000
-hi VimwikiHeader2 guifg=#00FF00
-hi VimwikiHeader3 guifg=#0000FF
-hi VimwikiHeader4 guifg=#FF00FF
-hi VimwikiHeader5 guifg=#00FFFF
-hi VimwikiHeader6 guifg=#FFFF00
+" https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
+hi VimwikiHeader1 guifg=#C00000 " muted red
+hi VimwikiHeader2 guifg=#00C000 " muted green
+hi VimwikiHeader3 guifg=#C0C000 " muted yellow
+hi VimwikiHeader4 guifg=#0000C0 " muted blue
+hi VimwikiHeader5 guifg=#C000C0 " muted magenta
+hi VimwikiHeader6 guifg=#00C0C0 " muted cyan
 " set hi link VimwikiHeader1 pandocBlockQuoteLeader1
 " set hi link VimwikiHeader2 pandocBlockQuoteLeader2
 " set hi link VimwikiHeader3 pandocBlockQuoteLeader3
