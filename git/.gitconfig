@@ -3,6 +3,7 @@
 [core]
     excludefiles = /Users/kelley/.gitignore
     excludesfile = /Users/kelley/.gitignore_global
+    pager = less -+F -+X
 [gui]
     fontdiff = -family \"Lucida Grande\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0
     spellingdictionary=none
@@ -14,11 +15,9 @@
     l = log --pretty='format:%h %cD %s' --shortstat --pretty=oneline --abbrev-commit
     ll = log --pretty='format:%h %cD %s' --stat --pretty=oneline --abbrev-commit
     wdiff = diff --color-words
-
-
 [user]
-	name = dankelley
-	email = kelley.dan@gmail.com
+    name = dankelley
+    email = kelley.dan@gmail.com
 [branch]
     autosetupmerge = true
 [difftool "sourcetree"]
@@ -32,13 +31,15 @@
     clean = git media clean %f
     smudge = git media smudge %f
 [credential]
-	helper = cache --timeout=7200
+    helper = cache --timeout=7200
 [filter "hawser"]
     clean = git hawser clean %f
     smudge = git hawser smudge %f
     required = true
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[pull]
+	rebase = true

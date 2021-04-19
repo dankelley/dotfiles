@@ -12,8 +12,8 @@ set backup
 set backupskip=/tmp/*,/private/tmp/*
 let mapleader = ','
 let maplocalleader = ','
-let r_indent_align_args = 1
-let r_indent_ess_comments = 1
+"let r_indent_align_args = 0 " 1 means align to (
+"let r_indent_ess_comments = 0 " 1 means single # aligns at col 40
 set enc=utf-8
 set ruler
 
@@ -40,13 +40,14 @@ set printfont=IBM_Plex_Mono:h9
 "set printfont=Courier:h14
 set printoptions=left:15pt,right:15pt,top:15pt,bottom:15pt
 
-if has("gui_macvim")
+if has("gui_running")
     "set guifont=Monaco:h13
     colorscheme dek01
-    set guifont=IBM_Plex_Mono:h14
+    set guifont=IBMPlexMono-SemiBold:h14
 else
-    set columns=80
+    colorscheme default
 endif
+set columns=80
 
 "if has("gui_macvim")
 "   hi Conceal guibg=White guifg=Black
@@ -70,6 +71,10 @@ filetype indent on
 :map <F3> :s/`\([^`]*\)`/\\code{\1}/gc
 " kelley: F12 runs !make
 :map <F12> :!make<CR>
+
+" Touchbar
+amenu TouchBar.make :!make<CR>
+amenu TouchBar.@q @q
 
 "" vimorganizer
 " au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
@@ -107,7 +112,12 @@ match ErrorMsg '\s\+$'
 inoremap jj <esc>
 
 call plug#begin('~/.vim/plugged')
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'chuling/ci_dark.vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+Plug 'jalvesaq/zotcite'
 " "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 " "Plug 'junegunn/fzf.vim'
 call plug#end()
@@ -122,7 +132,7 @@ hi VimwikiHeader3 guifg=#C0C000 " muted yellow
 hi VimwikiHeader4 guifg=#0000C0 " muted blue
 hi VimwikiHeader5 guifg=#C000C0 " muted magenta
 hi VimwikiHeader6 guifg=#00C0C0 " muted cyan
-" set hi link VimwikiHeader1 pandocBlockQuoteLeader1
+hi link VimwikiHeader1 pandocBlockQuoteLeader1
 " set hi link VimwikiHeader2 pandocBlockQuoteLeader2
 " set hi link VimwikiHeader3 pandocBlockQuoteLeader3
 " set hi link VimwikiHeader4 pandocBlockQuoteLeader4
@@ -132,3 +142,24 @@ hi VimwikiHeader6 guifg=#00C0C0 " muted cyan
 "
 " turn off incremental search, which neovim uses
 set noincsearch
+
+set cursorline
+
+" R
+vmap <Space> <Plug>RDSendSelection
+nmap <Space> <Plug>RDSendLine
+
+" Show partial lines (useful for single-line paragraphs)
+set display+=lastline
+
+
+let g:slime_target = "tmux"
+
+" Fancy line numbering.
+" https://jeffkreeftmeijer.com/vim-number/
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END

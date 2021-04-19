@@ -111,7 +111,7 @@ alias skim='open -a skim'
 alias v='~/bin/v'
 alias vim='/Applications/MacVim.app/Contents/bin/vim'
 alias t='tmux a'
-
+alias n='PYTHONPATH=~/git/nota python3 -m nota'
 # ssh tries to attach to a tmux session on remote host
 function ssht() {
     ssh $* -t '/usr/local/bin/tmux a || /usr/local/bin/tmux || /bin/zsh'
@@ -125,11 +125,21 @@ setopt ignore_eof
 function Rmd() {
     R --no-save -e 'library(rmarkdown); render("'$1'", "pdf_document")'
 }
+# create a docx from an Rmarkdown file
+function Rmdw() {
+    R --no-save -e 'library(rmarkdown); render("'$1'", "word_document")'
+}
 
+export PATH="/usr/local/bin:/usr/local/sbin:/Users/kelley/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# three git steps in one
+function G() {
+    git add .
+    git commit -m "$1"
+    #git push
+}
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
