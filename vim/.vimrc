@@ -166,6 +166,9 @@ augroup numbertoggle
 augroup END
 
 
+# For ctags: see https://github.com/preservim/tagbar/wiki#r,
+# which also explains how to edit .zshrc
+# NB. on macOS, need to use the brew version of ctags.
 let g:tagbar_type_r = {
     \ 'ctagstype' : 'r',
     \ 'kinds'     : [
