@@ -88,7 +88,7 @@ endif
 set backupskip=/tmp/*,/private/tmp/*"
 
 " 2014-05-08
-autocmd BufNewFile,BufReadPost *.Rmd set filetype=Rnoweb
+autocmd BufNewFile,BufReadPost *.Rmd set filetype=rmd
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.txt set filetype=markdown
 let g:instant_markdown_slow = 1
@@ -113,26 +113,27 @@ inoremap jj <esc>
 
 call plug#begin('~/.vim/plugged')
 Plug 'JuliaEditorSupport/julia-vim'
-Plug 'chuling/ci_dark.vim'
+"Plug 'chuling/ci_dark.vim'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
-Plug 'jalvesaq/zotcite'
+"Plug 'jalvesaq/zotcite'
+Plug 'vim-pandoc/vim-rmarkdown'
 " "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 " "Plug 'junegunn/fzf.vim'
 call plug#end()
 
-" vimwiki: use markdown format
-let g:vimwiki_list = [{'path': '~/git/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-" https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
-hi VimwikiHeader1 guifg=#C00000 " muted red
-hi VimwikiHeader2 guifg=#00C000 " muted green
-hi VimwikiHeader3 guifg=#C0C000 " muted yellow
-hi VimwikiHeader4 guifg=#0000C0 " muted blue
-hi VimwikiHeader5 guifg=#C000C0 " muted magenta
-hi VimwikiHeader6 guifg=#00C0C0 " muted cyan
-hi link VimwikiHeader1 pandocBlockQuoteLeader1
+"> " vimwiki: use markdown format
+"> let g:vimwiki_list = [{'path': '~/git/vimwiki/',
+">                       \ 'syntax': 'markdown', 'ext': '.md'}]
+"> " https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
+"> hi VimwikiHeader1 guifg=#C00000 " muted red
+"> hi VimwikiHeader2 guifg=#00C000 " muted green
+"> hi VimwikiHeader3 guifg=#C0C000 " muted yellow
+"> hi VimwikiHeader4 guifg=#0000C0 " muted blue
+"> hi VimwikiHeader5 guifg=#C000C0 " muted magenta
+"> hi VimwikiHeader6 guifg=#00C0C0 " muted cyan
+"> hi link VimwikiHeader1 pandocBlockQuoteLeader1
 " set hi link VimwikiHeader2 pandocBlockQuoteLeader2
 " set hi link VimwikiHeader3 pandocBlockQuoteLeader3
 " set hi link VimwikiHeader4 pandocBlockQuoteLeader4
@@ -163,3 +164,14 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
+
+let g:tagbar_type_r = {
+    \ 'ctagstype' : 'r',
+    \ 'kinds'     : [
+        \ 'f:Functions',
+        \ 'g:GlobalVariables',
+        \ 'v:FunctionVariables',
+    \ ]
+\ }
+

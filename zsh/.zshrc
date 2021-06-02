@@ -100,6 +100,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias clean='rm -rf *~'
 alias cp='cp -i'
+alias ctags='/usr/local/bin/ctags' # use homebrew, not mac, for R
 alias hist='history|tail -33'
 alias m=make
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
