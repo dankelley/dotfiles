@@ -1,0 +1,18 @@
+snippet fr "frame"
+\begin{frame}
+\frametitle{${1:title}}
+\end{frame}
+endsnippet
+
+snippet tpic "titled picture"
+
+\begin{frame}
+\frametitle{${1:title}}
+\begin{figure}
+\begin{center}
+\includegraphics[width=${2:size}\hsize]{\dir/${3:name}}
+\end{center}
+\end{figure}
+\end{frame}
+
+endsnippet

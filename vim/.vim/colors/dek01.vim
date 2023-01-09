@@ -54,7 +54,9 @@
 
 " ********************************************************************************
 set background=dark
+if has("gui_running")
 set transparency=10
+endif
 hi clear
 
 if exists("syntax_on")

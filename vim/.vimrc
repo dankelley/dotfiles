@@ -1,3 +1,6 @@
+if has('python3')
+endif
+set nofoldenable " disable folding
 au BufRead *.txt setlocal spell spelllang=en_us
 au BufRead *.tex setlocal spell spelllang=en_us
 au BufRead *.md  setlocal spell spelllang=en_us
@@ -12,8 +15,8 @@ set backup
 set backupskip=/tmp/*,/private/tmp/*
 let mapleader = ','
 let maplocalleader = ','
-"let r_indent_align_args = 0 " 1 means align to (
-"let r_indent_ess_comments = 0 " 1 means single # aligns at col 40
+let r_indent_align_args = 0 " 1 means align to (
+let r_indent_ess_comments = 0 " 1 means single # aligns at col 40
 set enc=utf-8
 set ruler
 
@@ -36,16 +39,18 @@ map <LocalLeader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "setup for hardcopy
 "set printfont=Courier:h10
 "set printfont=Monaco:h12
-set printfont=IBM_Plex_Mono:h9
+set printfont=IBM_Plex_Mono:h12
 "set printfont=Courier:h14
 set printoptions=left:15pt,right:15pt,top:15pt,bottom:15pt
 
 if has("gui_running")
-    "set guifont=Monaco:h13
     colorscheme dek01
-    set guifont=IBMPlexMono-SemiBold:h14
+    set guifont=IBMPlexMono-Medium:h16
+    "set guifont=Monaco:h13
+    "colorscheme base16-default-dark
 else
-    colorscheme default
+    "colorscheme default
+    colorscheme dek01
 endif
 set columns=80
 
@@ -88,9 +93,9 @@ endif
 set backupskip=/tmp/*,/private/tmp/*"
 
 " 2014-05-08
-autocmd BufNewFile,BufReadPost *.Rmd set filetype=rmd
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd BufNewFile,BufReadPost *.txt set filetype=markdown
+"autocmd BufRead,BufNewFile *.rmd set filetype=rmarkdown
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+"autocmd BufRead,BufNewFile *.txt set filetype=markdown
 let g:instant_markdown_slow = 1
 
 " vimr
@@ -109,18 +114,66 @@ augroup END
 match ErrorMsg '\s\+$'
 
 " escape as jj
-inoremap jj <esc>
+"inoremap jj <esc>
+
 
 call plug#begin('~/.vim/plugged')
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'voldikss/vim-floaterm'
+"let g:floaterm_keymap_new = '<Leader>ft'
+" Plug 'vim-airline/vim-airline'
+" https://github.com/SirVer/ultisnips
+" https://www.sirver.net/about.html
+Plug 'chriskempson/base16-vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'petRUShka/vim-sage'
+let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+"Plug 'neovim/nvim-lspconfig'
+">" org mode https://github.com/kristijanhusak/orgmode.nvim
+">Plug 'kristijanhusak/orgmode.nvim'
+" Telescope https://github.com/nvim-telescope/telescope.nvim
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+if has('nvim')
+" treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+"Plug 'vim-pandoc/vim-pandoc'
+"Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+" Find files using Telescope command-line sugar.
+nnoremap <localleader>ff <cmd>Telescope find_files<cr>
+nnoremap <localleader>fg <cmd>Telescope live_grep<cr>
+nnoremap <localleader>fb <cmd>Telescope buffers<cr>
+nnoremap <localleader>fh <cmd>Telescope help_tags<cr>
+" Using Lua functions
+nnoremap <localleader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <localleader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <localleader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <localleader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+Plug 'jremmen/vim-ripgrep'
+endif
+" Julia
+Plug 'jpalardy/vim-slime', { 'for': ['julia']}
+Plug 'hanschen/vim-ipython-cell', { 'for': ['julia'] }
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'kdheepak/JuliaFormatter.vim'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'chuling/ci_dark.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 "Plug 'vimwiki/vimwiki'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 "Plug 'jalvesaq/zotcite'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-rmarkdown'
-" "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
-" "Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 "> " vimwiki: use markdown format
@@ -154,7 +207,17 @@ nmap <Space> <Plug>RDSendLine
 set display+=lastline
 
 
+" Slime
 let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+let g:slime_dont_ask_default = 1
+" Julia: make <Space>j run current line. Note that <C-c><C-c> runs paragraph.
+autocmd Filetype julia xnoremap <Space>j :SlimeSendCurrentLine<cr>
+autocmd Filetype julia nnoremap <Space>j :SlimeSendCurrentLine<cr>
+let g:slime_cell_delimiter = "#%%"
+"nmap <localleader>s <Plug>SlimeSendCell
+"autocmd Filetype julia xnoremap <localleader>s :SlimeSendCell<cr>
+"autocmd Filetype julia nnoremap <localleader>s :SlimeSendCell<cr>
 
 " Fancy line numbering.
 " https://jeffkreeftmeijer.com/vim-number/
@@ -177,4 +240,9 @@ let g:tagbar_type_r = {
         \ 'v:FunctionVariables',
     \ ]
 \ }
+
+:command! Rtags :!Rscript -e 'rtags(path="./", recursive=TRUE, ofile="TAGS", type="ctags")'
+set tags+=rtags
+
+let g:airline_theme='base16'
 

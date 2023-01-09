@@ -1,0 +1,12 @@
+snippet yml "yaml at start of Rmd file"
+---
+title: ${1}
+author: ${2:Dan Kelley}
+date: ${3:`!v strftime("%Y-%m-%d")`}
+output:
+    pdf_document:
+        extra_dependencies: ["times", "fullpage"]
+---
+
+endsnippet
+

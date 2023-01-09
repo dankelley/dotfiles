@@ -8,3 +8,4 @@ vim/.vim/spell
 .Rapp.history
 *.swp
 *~
+.DS_Store

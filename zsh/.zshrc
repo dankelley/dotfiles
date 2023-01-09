@@ -68,7 +68,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z)
+plugins=(
+    git
+    z
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,9 +107,12 @@ alias ctags='/usr/local/bin/ctags' # use homebrew, not mac, for R
 alias hist='history|tail -33'
 alias m=make
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
+#alias nnvim='~/Downloads/nvim-osx64/bin/nvim'
+alias nvim=~/nvim-macos/bin/nvim
 alias n=nota
-alias r='open -a R.app .'
+#alias r='open -a R.app .'
 alias rm='rm -i'
+#alias R='open -a R.app .'
 alias rs='open -a Rstudio .'
 alias skim='open -a skim'
 alias v='~/bin/v'
@@ -124,23 +130,34 @@ setopt ignore_eof
 
 # create a pdf from an Rmarkdown file
 function Rmd() {
-    R --no-save -e 'library(rmarkdown); render("'$1'", "pdf_document")'
+    R --no-save -e 'library(rmarkdown); render("'$1'", "pdf_document", encoding="UTF-8")'
 }
 # create a docx from an Rmarkdown file
 function Rmdw() {
     R --no-save -e 'library(rmarkdown); render("'$1'", "word_document")'
 }
+# create html from an Rmarkdown file
+function Rmdhtml() {
+    R --no-save -e 'library(rmarkdown); render("'$1'", "html_document", encoding="UTF-8")'
+}
+function Rmdmd() {
+    R --no-save -e 'library(rmarkdown); render("'$1'", "md_document", encoding="UTF-8")'
+}
+
 
 export PATH="/usr/local/bin:/usr/local/sbin:/Users/kelley/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# three git steps in one
-function G() {
-    git add .
-    git commit -m "$1"
-    #git push
-}
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+function J() {
+    tmux  send-keys "vim $1" Enter \; \
+        split-window -v \; \
+        rename-window julia \; \
+        send-keys "julia" Enter \; \
+        select-pane -t 0 \; 
+        }
+
+export _R_REGEX_MARK_NEW_RESULT_AS_BYTES_="TRUE"

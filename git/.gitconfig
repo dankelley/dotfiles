@@ -16,8 +16,8 @@
     ll = log --pretty='format:%h %cD %s' --stat --pretty=oneline --abbrev-commit
     wdiff = diff --color-words
 [user]
-    name = dankelley
-    email = kelley.dan@gmail.com
+	name = dankelley
+	email = kelley.dan@gmail.com
 [branch]
     autosetupmerge = true
 [difftool "sourcetree"]
@@ -43,3 +43,5 @@
     required = true
 [pull]
 	rebase = true
+[github]
+	user = dankelley
