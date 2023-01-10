@@ -71,10 +71,6 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
---DEK(
---DEKvim.keymap.set("n", "Q", "gq}", { noremap = true })
---)DEK
-
 if vim.fn.has("nvim-0.8") == 1 then
     vim.opt.spell = true
     vim.api.nvim_create_autocmd("TermOpen", {
@@ -209,8 +205,6 @@ vim.keymap.set("v", "<", "<gv")
 -- use Y to yank to the end of line
 --DEK vim.keymap.set("n", "Y", "y$")
 --DEK vim.keymap.set("v", "Y", "'+y")
---DEK defines
---vim.keymap.set("n", "Q", "gq}", { noremap = true })
 
 -- buffer & tab navigation
 vim.keymap.set("n", "]b", "<cmd>bnext<CR>")
@@ -352,7 +346,7 @@ if not lazy_status_ok then
 end
 
 lazy.setup({
-    vim.keymap.set("n", "Q", "gq}", { noremap = true }), --DEK
+    -- vim.keymap.set("n", "Q", "gq}", { noremap = true }), --DEK
 
     "nvim-lua/popup.nvim",
     "nvim-lua/plenary.nvim",
@@ -1906,7 +1900,6 @@ lazy.setup({
     --DEK     colorscheme = { "tokyonight" }
     --DEK },
 
-
     performance = {
         rtp = {
             disabled_plugins = {
@@ -1917,8 +1910,4 @@ lazy.setup({
     }
 }
 )
-
--- DEK{
--- vim.keymap.set("n", "Q", "gq}", { noremap = true })
--- }DEK
 
