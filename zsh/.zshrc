@@ -108,7 +108,7 @@ alias hist='history|tail -33'
 alias m=make
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 #alias nnvim='~/Downloads/nvim-osx64/bin/nvim'
-alias nvim=~/nvim-macos/bin/nvim
+#alias nvim=~/nvim-macos/bin/nvim
 alias n=nota
 #alias r='open -a R.app .'
 alias rm='rm -i'
@@ -161,3 +161,7 @@ function J() {
         }
 
 export _R_REGEX_MARK_NEW_RESULT_AS_BYTES_="TRUE"
+
+function joss() {
+    docker run --rm --volume $PWD:/data --user $(id -u):$(id -g) --env JOURNAL=joss openjournals/inara
+}

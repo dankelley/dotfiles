@@ -47,7 +47,8 @@ local options = {
 
     -- edit
     fileencoding = "utf-8",
-    smartindent = false, --DEK true,
+    --DEKsmartindent = false, --DEK true,
+    smartindent = true,
     clipboard = "unnamedplus",
     textwidth = 80,
 
@@ -245,7 +246,7 @@ vim.keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true })
 vim.keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true })
 
 -- save in insert mode
---DEK vim.keymap.set("i", "<C-s>", "<cmd>:w<cr><esc>")
+vim.keymap.set("i", "<C-s>", "<cmd>:w<cr><esc>")
 
 -- <Leader>t[oggle]
 function _G.toggle_colorcolumn()
@@ -353,7 +354,9 @@ lazy.setup({
 
     -- colorscheme
     {
-       "tomasr/molokai", --DEK "folke/tokyonight.nvim",
+        "tomasr/molokai",
+        --DEK "folke/tokyonight.nvim",
+        --DEK "sjl/badwolf",
         --DEK init = function()
         --DEK     vim.cmd.colorscheme("tokyonight")
         --DEK end,
@@ -747,7 +750,8 @@ lazy.setup({
             "petertriho/cmp-git",
             "uga-rosa/cmp-dictionary",
             "jalvesaq/cmp-nvim-r",
-
+            -- Julia (https://medium.com/coffee-in-a-klein-bottle/vim-for-julia-another-look-1dc4265bb49b)
+            "JuliaEditorSupport/julia-vim",
             -- snippets
             "saadparwaiz1/cmp_luasnip",
             "L3MON4D3/LuaSnip",
@@ -1209,23 +1213,23 @@ lazy.setup({
             mapping = { "jk" }
         }
     },
-    --DEK {
-    --DEK     "windwp/nvim-autopairs",
-    --DEK     event = "InsertEnter",
-    --DEK     config = function()
-    --DEK         local autopairs = require("nvim-autopairs")
-    --DEK         autopairs.setup({
-    --DEK             check_ts = true,
-    --DEK             disable_filetype = { "TelescopePrompt" }
-    --DEK         })
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            local autopairs = require("nvim-autopairs")
+            autopairs.setup({
+                check_ts = true,
+                disable_filetype = { "TelescopePrompt" }
+            })
 
-    --DEK         local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-    --DEK         local cmp_status_ok, cmp = pcall(require, "cmp")
-    --DEK         if cmp_status_ok then
-    --DEK             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
-    --DEK         end
-    --DEK     end
-    --DEK },
+            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            local cmp_status_ok, cmp = pcall(require, "cmp")
+            if cmp_status_ok then
+                cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+            end
+        end
+    },
     { "terrortylor/nvim-comment",
         keys = { "gcc", "gc" },
         config = function()
@@ -1656,9 +1660,9 @@ lazy.setup({
             -- do not align function arguments
             vim.g.r_indent_align_args = 0
             -- use two backticks to trigger the Rmarkdown chunk completion
-            vim.g.R_rmdchunk = "``"
-            -- use <Alt>- to insert assignment
-            vim.g.R_assign_map = "<M-->"
+            vim.g.R_rmdchunk = "```"
+            --DEK use <Alt>- to insert assignment
+            --DEK vim.g.R_assign_map = "<M-->"
             -- show hidden objects in object browser
             vim.g.R_objbr_allnames = 1
             -- show comments when sourced
@@ -1896,9 +1900,19 @@ lazy.setup({
         lazy = true
     },
 
-    --DEK install = {
-    --DEK     colorscheme = { "tokyonight" }
+    --DEK-- colorscheme
+    --DEK {
+    --DEK     "tamasr/molokai"
     --DEK },
+
+    --DEK {
+    -- colorscheme = { "tokyonight" }
+    --} DEK
+
+    --DEK underline the current line {
+    --vim.api.nvim_set_hl(0, 'CursorLine', { underline = true }),
+    --} DEK
+
 
     performance = {
         rtp = {
