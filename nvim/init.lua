@@ -47,8 +47,7 @@ local options = {
 
     -- edit
     fileencoding = "utf-8",
-    --DEKsmartindent = false, --DEK true,
-    smartindent = true,
+    smartindent = false, --DEK true,
     clipboard = "unnamedplus",
     textwidth = 80,
 
@@ -483,8 +482,8 @@ lazy.setup({
         "RRethy/vim-illuminate",
         event = "BufReadPost",
         keys = {
-            { "]]", function() require("illuniate").goto_next_reference(false) end },
-            { "[[", function() require("illuniate").goto_prev_reference(false) end }
+            { "]]", function() require("illuminate").goto_next_reference(false) end },
+            { "[[", function() require("illuminate").goto_prev_reference(false) end }
         },
         config = function()
             require("illuminate").configure({ delay = 200 })
@@ -1659,7 +1658,7 @@ lazy.setup({
             vim.g.R_debug = 1
             -- do not align function arguments
             vim.g.r_indent_align_args = 0
-            -- use two backticks to trigger the Rmarkdown chunk completion
+            -- use three backticks to trigger the Rmarkdown chunk completion
             vim.g.R_rmdchunk = "```"
             --DEK use <Alt>- to insert assignment
             --DEK vim.g.R_assign_map = "<M-->"
