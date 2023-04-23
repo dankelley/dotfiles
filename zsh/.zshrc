@@ -84,10 +84,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
   #export EDITOR='vim'
-  export EDITOR='/Applications/MacVim.app/Contents/bin/vim'
+  export EDITOR='/Users/kelley/nvim-macos/bin/nvim'
+else
+  export EDITOR='/Users/kelley/nvim-macos/bin/nvim'
+  #export EDITOR='/Applications/MacVim.app/Contents/bin/vim'
 fi
 
 # Compilation flags
@@ -107,8 +108,7 @@ alias ctags='/usr/local/bin/ctags' # use homebrew, not mac, for R
 alias hist='history|tail -33'
 alias m=make
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
-#alias nnvim='~/Downloads/nvim-osx64/bin/nvim'
-#alias nvim=~/nvim-macos/bin/nvim
+alias nvim='/Users/kelley/nvim-macos/bin/nvim'
 alias n=nota
 #alias r='open -a R.app .'
 alias rm='rm -i'
@@ -152,6 +152,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+alias julia=/Applications/Julia-1.9.app/Contents/Resources/julia/bin/julia
 function J() {
     tmux  send-keys "vim $1" Enter \; \
         split-window -v \; \
