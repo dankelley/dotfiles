@@ -4,25 +4,17 @@
     excludefiles = /Users/kelley/.gitignore
     excludesfile = /Users/kelley/.gitignore_global
     pager = less -+F -+X
-[gui]
-    fontdiff = -family \"Lucida Grande\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0
-    spellingdictionary=none
 [alias]
-    stat=diff --stat
-    changes=diff --name-status -r
     s=status
     graph = log --graph --all --pretty=format:'[%h] %s (%ar)'
     l = log --pretty='format:%h %cD %s' --shortstat --pretty=oneline --abbrev-commit
     ll = log --pretty='format:%h %cD %s' --stat --pretty=oneline --abbrev-commit
-    wdiff = diff --color-words
+    diffw = diff --ignore-space-change
 [user]
-	name = dankelley
-	email = kelley.dan@gmail.com
+    name = dankelley
+    email = kelley.dan@gmail.com
 [branch]
     autosetupmerge = true
-[difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path = 
 [mergetool "sourcetree"]
     cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
     trustExitCode = true
@@ -42,6 +34,8 @@
     process = git-lfs filter-process
     required = true
 [pull]
-	rebase = true
+    rebase = true
 [github]
-	user = dankelley
+    user = dankelley
+[init]
+    defaultBranch = main

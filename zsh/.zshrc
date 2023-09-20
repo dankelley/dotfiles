@@ -85,9 +85,12 @@ source $ZSH/oh-my-zsh.sh
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   #export EDITOR='vim'
-  export EDITOR='/Users/kelley/nvim-macos/bin/nvim'
+  #export EDITOR='/Users/kelley/nvim-macos/bin/nvim'
+  export EDITOR='/Users/kelley/.local/bin/lvim'
 else
-  export EDITOR='/Users/kelley/nvim-macos/bin/nvim'
+  #export EDITOR='/usr/local/bin/nvim'
+  export EDITOR='/Users/kelley/.local/bin/lvim'
+  #export EDITOR='/Users/kelley/nvim-macos/bin/nvim'
   #export EDITOR='/Applications/MacVim.app/Contents/bin/vim'
 fi
 
@@ -108,7 +111,9 @@ alias ctags='/usr/local/bin/ctags' # use homebrew, not mac, for R
 alias hist='history|tail -33'
 alias m=make
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
-alias nvim='/Users/kelley/nvim-macos/bin/nvim'
+alias lvim='/Users/kelley/.local/bin/lvim'
+
+#alias nvim='/Users/kelley/nvim-macos/bin/nvim'
 alias n=nota
 #alias r='open -a R.app .'
 alias rm='rm -i'
@@ -152,7 +157,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias julia=/Applications/Julia-1.9.app/Contents/Resources/julia/bin/julia
+alias julia=/Applications/Julia-1.10.app/Contents/Resources/julia/bin/julia
 function J() {
     tmux  send-keys "vim $1" Enter \; \
         split-window -v \; \
@@ -165,4 +170,22 @@ export _R_REGEX_MARK_NEW_RESULT_AS_BYTES_="TRUE"
 
 function joss() {
     docker run --rm --volume $PWD:/data --user $(id -u):$(id -g) --env JOURNAL=joss openjournals/inara
+}
+
+
+# nbf: add a file to a nb 'notebook'
+function nbf {
+    if [ $# -eq 1 ]
+    then
+        #echo "add to default notebook"
+        cat $1 | nb add "$1" --title $1
+        return
+    fi
+    if [ $# -eq 2 ]
+    then
+        #echo "add to default notebook $2"
+        cat $1 | nb add "$2:$1" --title $1
+        return
+    fi
+    echo "Usage: nbf file_name [notebook_name]"
 }

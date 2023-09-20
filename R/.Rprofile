@@ -9,13 +9,8 @@ Sys.setenv(TZ="America/Halifax")
 ## https://github.com/r-lib/devtools/issues/1921
 ## Sys.setenv("_R_CHECK_CRAN_INCOMING_"=TRUE)
 setHook(packageEvent("grDevices", "onLoad"),
-    function(...) grDevices::quartz.options(width=6, height=5))
+    function(...) grDevices::quartz.options(width=5, height=5))
 
 # https://github.com/dankelley/oce/issues/1977
 #> trace(gsub, exit=quote(if ("bytes" %in% Encoding(returnValue())) browser()))
-
-#II <- function()
-#    devtools::install(quick=TRUE)
-#TT <- function()
-#    devtools::test()
 
