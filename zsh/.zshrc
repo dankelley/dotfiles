@@ -86,7 +86,8 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   #export EDITOR='vim'
   #export EDITOR='/Users/kelley/nvim-macos/bin/nvim'
-  export EDITOR='/Users/kelley/.local/bin/lvim'
+  #export EDITOR='/Users/kelley/.local/bin/lvim'
+  export EDITOR='/Applications/MacVim.app/Contents/bin/vim'
 else
   #export EDITOR='/usr/local/bin/nvim'
   export EDITOR='/Users/kelley/.local/bin/lvim'
@@ -157,14 +158,14 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias julia=/Applications/Julia-1.10.app/Contents/Resources/julia/bin/julia
-function J() {
-    tmux  send-keys "vim $1" Enter \; \
-        split-window -v \; \
-        rename-window julia \; \
-        send-keys "julia" Enter \; \
-        select-pane -t 0 \; 
-        }
+#alias julia=/Applications/Julia-1.10.app/Contents/Resources/julia/bin/julia
+#function J() {
+#    tmux  send-keys "vim $1" Enter \; \
+#        split-window -v \; \
+#        rename-window julia \; \
+#        send-keys "julia" Enter \; \
+#        select-pane -t 0 \; 
+#        }
 
 export _R_REGEX_MARK_NEW_RESULT_AS_BYTES_="TRUE"
 

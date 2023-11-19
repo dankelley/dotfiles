@@ -13,4 +13,3 @@ setHook(packageEvent("grDevices", "onLoad"),
 
 # https://github.com/dankelley/oce/issues/1977
 #> trace(gsub, exit=quote(if ("bytes" %in% Encoding(returnValue())) browser()))
-
