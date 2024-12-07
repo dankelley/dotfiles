@@ -87,10 +87,12 @@ if [[ -n $SSH_CONNECTION ]]; then
   #export EDITOR='vim'
   #export EDITOR='/Users/kelley/nvim-macos/bin/nvim'
   #export EDITOR='/Users/kelley/.local/bin/lvim'
-  export EDITOR='/Applications/MacVim.app/Contents/bin/vim'
+  #export EDITOR='/Applications/MacVim.app/Contents/bin/vim'
+  export EDITOR='/usr/local/bin/nvim'
 else
   #export EDITOR='/usr/local/bin/nvim'
-  export EDITOR='/Users/kelley/.local/bin/lvim'
+  #export EDITOR='/Users/kelley/.local/bin/lvim'
+  export EDITOR='/usr/local/bin/nvim'
   #export EDITOR='/Users/kelley/nvim-macos/bin/nvim'
   #export EDITOR='/Applications/MacVim.app/Contents/bin/vim'
 fi
@@ -112,25 +114,37 @@ alias ctags='/usr/local/bin/ctags' # use homebrew, not mac, for R
 alias hist='history|tail -33'
 alias m=make
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
-alias lvim='/Users/kelley/.local/bin/lvim'
+#alias lvim='/Users/kelley/.local/bin/lvim'
+alias ggn='git grep -n'
 
-#alias nvim='/Users/kelley/nvim-macos/bin/nvim'
-alias n=nota
+alias nvim='/Users/kelley/nvim-macos-x86_64/bin/nvim'
+#alias n=nota
 #alias r='open -a R.app .'
 alias rm='rm -i'
 #alias R='open -a R.app .'
 alias rs='open -a Rstudio .'
 alias skim='open -a skim'
-alias v='~/bin/v'
+#alias v='~/bin/v'
 alias vim='/Applications/MacVim.app/Contents/bin/vim'
-alias t='tmux a'
-alias n='PYTHONPATH=~/git/nota python3 -m nota'
+#alias t='tmux a'
+alias ',n'='PYTHONPATH=~/git/nota python3 -m nota'
+#alias ',d'='PYTHONPATH=~/git/diarydek python3 -m diarydek'
+alias ',da'='diarydek --database=~/Documents/diary/admin.db'
+alias ',dr'='diarydek --database=~/Documents/diary/research.db'
+#alias ',dw'='diarydek --database=~/Documents/diary/work.db'
+alias ',dp'='diarydek --database=~/Documents/diary/personal.db'
+alias ',tc'='typst compile'
+function ,dpw() {
+    diarydek --database=~/Documents/diary/personal.db $* : weight
+    /usr/local/bin/Rscript /Users/kelley/git/personal/health/weight/weight.R
+    open /Users/kelley/weight.pdf
+}
 # ssh tries to attach to a tmux session on remote host
 function ssht() {
     ssh $* -t '/usr/local/bin/tmux a || /usr/local/bin/tmux || /bin/zsh'
 }
 
-# prevent ctrl-d from killing the terminal (I want this because I am
+# prevent ctrl-d from killing the terminal.  I want this because I am
 # in a ctrl-d habit in terminals, which kills a tmux session.
 setopt ignore_eof
 
@@ -175,7 +189,7 @@ function joss() {
 
 
 # nbf: add a file to a nb 'notebook'
-function nbf {
+function ,nbf {
     if [ $# -eq 1 ]
     then
         #echo "add to default notebook"
@@ -188,5 +202,11 @@ function nbf {
         cat $1 | nb add "$2:$1" --title $1
         return
     fi
-    echo "Usage: nbf file_name [notebook_name]"
+    echo "usage: nbf file_name [notebook_name]"
 }
+
+function ,nc() {
+    /usr/local/bin/Rscript /Users/kelley/bin/netcdf_preview.R $*
+}
+
+source <(fzf --zsh)

@@ -2,7 +2,7 @@
     default = matching
 [core]
     excludefiles = /Users/kelley/.gitignore
-    excludesfile = /Users/kelley/.gitignore_global
+    #excludesfile = /Users/kelley/.gitignore_global
     pager = less -+F -+X
 [alias]
     s=status
@@ -28,14 +28,14 @@
     clean = git hawser clean %f
     smudge = git hawser smudge %f
     required = true
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
 [pull]
     rebase = true
 [github]
     user = dankelley
 [init]
     defaultBranch = main
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

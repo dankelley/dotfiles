@@ -17,6 +17,7 @@ let mapleader = ','
 let maplocalleader = ','
 let r_indent_align_args = 0 " 1 means align to (
 let r_indent_ess_comments = 0 " 1 means single # aligns at col 40
+let r_assign_map = '_'
 set enc=utf-8
 set ruler
 
