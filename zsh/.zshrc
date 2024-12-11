@@ -83,12 +83,13 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
+#<OLD>if [[ -n $SSH_CONNECTION ]]; then
+if [[ $OSTYPE == darwin* && $CPUTYPE == "arm"64 ]]; then
   #export EDITOR='vim'
   #export EDITOR='/Users/kelley/nvim-macos/bin/nvim'
   #export EDITOR='/Users/kelley/.local/bin/lvim'
   #export EDITOR='/Applications/MacVim.app/Contents/bin/vim'
-  export EDITOR='/usr/local/bin/nvim'
+  export EDITOR='/Users/kelley/nvim-macos-arm64/bin/nvim'
 else
   #export EDITOR='/usr/local/bin/nvim'
   #export EDITOR='/Users/kelley/.local/bin/lvim'
@@ -117,7 +118,11 @@ alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 #alias lvim='/Users/kelley/.local/bin/lvim'
 alias ggn='git grep -n'
 
-alias nvim='/Users/kelley/nvim-macos-x86_64/bin/nvim'
+if [[ $OSTYPE == darwin* && $CPUTYPE == arm64 ]]; then
+	alias nvim='/Users/kelley/nvim-macos-arm64/bin/nvim'
+else
+	alias nvim='/Users/kelley/nvim-macos-x86_64/bin/nvim'
+fi
 #alias n=nota
 #alias r='open -a R.app .'
 alias rm='rm -i'
