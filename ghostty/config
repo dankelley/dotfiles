@@ -1,0 +1,7 @@
+# font-family = IBM Plex Mono Medium
+font-size = 17 # or 18 perhaps (check on my work monitor)
+# theme = Desert -- the nvim powerline is difficult to read
+# theme = xcodedarkhc
+theme = catppuccin-mocha
+keybind = global:control+comma=toggle_quick_terminal
+

@@ -89,7 +89,8 @@ if [[ $OSTYPE == darwin* && $CPUTYPE == "arm"64 ]]; then
   #export EDITOR='/Users/kelley/nvim-macos/bin/nvim'
   #export EDITOR='/Users/kelley/.local/bin/lvim'
   #export EDITOR='/Applications/MacVim.app/Contents/bin/vim'
-  export EDITOR='/Users/kelley/nvim-macos-arm64/bin/nvim'
+  #export EDITOR='/Users/kelley/nvim-macos-arm64/bin/nvim'
+  export EDITOR='/opt/homebrew/bin/nvim'
 else
   #export EDITOR='/usr/local/bin/nvim'
   #export EDITOR='/Users/kelley/.local/bin/lvim'
@@ -118,11 +119,12 @@ alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 #alias lvim='/Users/kelley/.local/bin/lvim'
 alias ggn='git grep -n'
 
-if [[ $OSTYPE == darwin* && $CPUTYPE == arm64 ]]; then
-	alias nvim='/Users/kelley/nvim-macos-arm64/bin/nvim'
-else
-	alias nvim='/Users/kelley/nvim-macos-x86_64/bin/nvim'
-fi
+#if [[ $OSTYPE == darwin* && $CPUTYPE == arm64 ]]; then
+#	alias nvim='/Users/kelley/nvim-macos-arm64/bin/nvim'
+#else
+#	alias nvim='/Users/kelley/nvim-macos-x86_64/bin/nvim'
+#fi
+
 #alias n=nota
 #alias r='open -a R.app .'
 alias rm='rm -i'
