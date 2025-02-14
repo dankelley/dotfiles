@@ -111,6 +111,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias clean='rm -rf *~'
+alias dirs='dirs -v'
 alias cp='cp -i'
 alias ctags='/usr/local/bin/ctags' # use homebrew, not mac, for R
 alias hist='history|tail -33'
